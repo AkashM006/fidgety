@@ -1,6 +1,8 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+import "remixicon/fonts/remixicon.css";
+
 import PDPContent from "./PDPContent";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Layout from "./components/Layout";
