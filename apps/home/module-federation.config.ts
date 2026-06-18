@@ -4,6 +4,7 @@ export const mfConfig = {
   exposes: {
     "./Header": "./src/components/Header.tsx",
     "./Footer": "./src/components/Footer.tsx",
+    "./products": "./src/products.ts",
   },
   shared: ["react", "react-dom"],
 };
