@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { jwt, login } from "../cart";
+import { useEffect, useState } from "react";
+import Login from "./Login";
+import { jwt } from "../cart";
 
 const CartContent = () => {
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    login("sally", "123");
     const subscription = jwt.subscribe((val) => setToken(val ?? ""));
 
     return () => {
@@ -13,7 +13,12 @@ const CartContent = () => {
     };
   }, []);
 
-  return <div>JWT: {token}</div>;
+  return (
+    <div>
+      <div>JWT: {token}</div>
+      <Login />
+    </div>
+  );
 };
 
 export default CartContent;
