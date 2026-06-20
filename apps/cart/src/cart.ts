@@ -59,6 +59,23 @@ export function useLoggedIn() {
   return loggedIn;
 }
 
+export const useCart = () => {
+  const [cartItems, setCartItems] = useState<CartItem[] | undefined>([]);
+
+  useEffect(() => {
+    setCartItems(cart.value?.cartItems);
+    const subscription = cart.subscribe((c) => {
+      setCartItems(c?.cartItems);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  });
+
+  return cartItems;
+};
+
 export const getCart = () =>
   fetch(`${API_SERVER}/cart`, {
     headers: {

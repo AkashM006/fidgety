@@ -1,6 +1,10 @@
 export const mfConfig = {
   name: "cart",
-  exposes: {},
+  exposes: {
+    "./cart": "./src/cart.ts",
+    "./Login": "./src/components/Login.tsx",
+    "./MiniCart": "./src/components/MiniCart.tsx",
+  },
   remotes: {
     home: "home@http://localhost:5000/mf-manifest.json",
     // pdp: "pdp@http://localhost:5001/mf-manifest.json",
