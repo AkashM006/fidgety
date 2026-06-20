@@ -1,7 +1,7 @@
 import React from "react";
 import { currency } from "home/products";
 import { clearCart } from "../cart";
-import { useCart } from "../cartStore";
+import { useCart } from "../hooks";
 
 const CartContent = () => {
   const items = useCart();

@@ -1,5 +1,5 @@
-import { useAuthStore } from "./authStore";
-import { CartItem, useCartStore } from "./cartStore";
+import { jwt } from "./authStore";
+import { cart, CartItem } from "./cartStore";
 
 const API_SERVER = "http://localhost:8080";
 
@@ -20,38 +20,32 @@ export const login = (username: string, password: string) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      useAuthStore.getState().login(data.access_token);
-      // jwt.next(data.access_token);
+      jwt.next(data.access_token);
       getCart();
       return data.access_token;
     });
 };
 
 export const getCart = () => {
-  const jwt = useAuthStore.getState().jwt;
   fetch(`${API_SERVER}/cart`, {
     headers: {
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${jwt.value}`,
-      Authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt.value}`,
     },
   })
     .then((res) => res.json())
     .then((res) => {
-      useCartStore.getState().setCart(res.cartItems);
-      // cart.next(res);
+      cart.next(res);
       return res;
     });
 };
 
 export const addToCart = (id: string | number) => {
-  const jwt = useAuthStore.getState().jwt;
   fetch(`${API_SERVER}/cart`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${jwt.value}`,
-      Authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt.value}`,
     },
     body: JSON.stringify({ id }),
   })
@@ -62,12 +56,11 @@ export const addToCart = (id: string | number) => {
 };
 
 export const clearCart = () => {
-  const jwt = useAuthStore.getState().jwt;
   fetch(`${API_SERVER}/cart`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt.value}`,
     },
   })
     .then((res) => res.json())

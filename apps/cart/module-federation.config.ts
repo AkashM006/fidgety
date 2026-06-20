@@ -21,9 +21,6 @@ export const mfConfig = {
     "react-dom": {
       singleton: true,
     },
-    zustand: {
-      singleton: true,
-    },
     "./src/cartStore.ts": {
       singleton: true,
     },

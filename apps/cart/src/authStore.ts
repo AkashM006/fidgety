@@ -1,17 +1,4 @@
-import { create } from "zustand";
+import { useEffect, useState } from "react";
+import { BehaviorSubject } from "rxjs";
 
-export type AuthStore = {
-  jwt: string | null;
-  login: (jwt: string) => void;
-  logout: () => void;
-};
-
-export const useAuthStore = create<AuthStore>()((set) => ({
-  jwt: null,
-  login: (jwt) => {
-    set({ jwt });
-  },
-  logout: () => set({ jwt: null }),
-}));
-
-export const useLoggedIn = () => !!useAuthStore((state) => state.jwt);
+export const jwt = new BehaviorSubject<string | null>(null);

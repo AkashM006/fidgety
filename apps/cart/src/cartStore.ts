@@ -1,4 +1,5 @@
-import { create } from "zustand";
+import { useEffect, useState } from "react";
+import { BehaviorSubject } from "rxjs";
 
 interface Product {
   id: number;
@@ -13,18 +14,8 @@ export interface CartItem extends Product {
   quantity: number;
 }
 
-export type CartStore = {
-  cartItems: CartItem[] | undefined;
-  setCart: (items: CartItem[]) => void;
+type Cart = {
+  cartItems: CartItem[];
 };
 
-export const useCartStore = create<CartStore>()((set) => ({
-  cartItems: undefined,
-  setCart: (items: CartItem[]) => {
-    set({
-      cartItems: items,
-    });
-  },
-}));
-
-export const useCart = () => useCartStore((state) => state.cartItems);
+export const cart = new BehaviorSubject<Cart | null>(null);
