@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { currency, getProducts, Product } from "../products";
-import { addToCart, useLoggedIn } from "cart/cart";
+import { addToCart } from "cart/cart";
+import { useLoggedIn } from "cart/hooks";
 
 const HomeContent = () => {
   const [products, setProducts] = useState<Product[]>([]);
