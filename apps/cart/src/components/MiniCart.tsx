@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
-import { clearCart, useCart } from "../cart";
+import { clearCart } from "../cart";
 import { currency } from "home/products";
+import { useCart } from "../cartStore";
 
 const MiniCart = () => {
   const [showCart, setShowCart] = useState(false);

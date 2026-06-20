@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { login, useLoggedIn } from "../cart";
+import { login } from "../cart";
+import { useLoggedIn } from "../hooks";
+import { useAuthStore } from "../authStore";
 
 const Login = () => {
-  const loggedIn = useLoggedIn();
+  const loggedIn = !!useAuthStore((state) => state.jwt);
 
   const [showLogin, setShowLogin] = useState(false);
 

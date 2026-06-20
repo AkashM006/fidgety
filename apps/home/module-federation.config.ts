@@ -9,5 +9,21 @@ export const mfConfig = {
     "./Footer": "./src/components/Footer.tsx",
     "./products": "./src/products.ts",
   },
-  shared: ["react", "react-dom"],
+  shared: {
+    react: {
+      singleton: true,
+    },
+    "react-dom": {
+      singleton: true,
+    },
+    zustand: {
+      singleton: true,
+    },
+    "cart/cartStore": {
+      singleton: true,
+    },
+    "cart/authStore": {
+      singleton: true,
+    },
+  },
 };
