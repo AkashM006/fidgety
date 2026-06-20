@@ -1,11 +1,17 @@
 import MiniCart from "cart/MiniCart";
 import Login from "cart/Login";
+import { Link } from "react-router";
 
 const Header = () => {
   return (
     <div className="p-5 bg-blue-500 text-white text-3xl font-bold">
       <div className="flex">
-        <div className="flex-grow">Fidgety</div>
+        <div className="flex-grow">
+          <Link to={"/"}>Fidgety</Link>|
+          <Link to={"/cart"} id="cart">
+            Cart
+          </Link>
+        </div>
         <div className="flex-end relative">
           <MiniCart />
           <Login />

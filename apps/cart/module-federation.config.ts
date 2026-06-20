@@ -22,6 +22,9 @@ export const mfConfig = {
     "react-dom": {
       singleton: true,
     },
+    "react-router": {
+      singleton: true,
+    },
     "./src/cartStore.ts": {
       singleton: true,
     },
