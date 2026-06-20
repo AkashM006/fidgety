@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getProductById, currency, Product } from "home/products";
 import { useParams } from "react-router";
+import { currency, getProductById, Product } from "../products";
 
 const PDPContent = () => {
   const params = useParams<{ id: string }>();

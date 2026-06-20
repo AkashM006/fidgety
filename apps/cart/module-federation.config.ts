@@ -8,6 +8,7 @@ export const mfConfig = {
     "./cartStore": "./src/cartStore.ts",
     "./authStore": "./src/authStore.ts",
     "./hooks": "./src/hooks.tsx",
+    "./CartContent": "./src/components/CartContent.tsx",
   },
   remotes: {
     home: "home@http://localhost:5000/mf-manifest.json",
