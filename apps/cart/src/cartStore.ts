@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { BehaviorSubject } from "rxjs";
 
 interface Product {

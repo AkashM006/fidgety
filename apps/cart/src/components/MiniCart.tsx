@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
-import { clearCart } from "../cart";
-import { currency } from "home/products";
+import { clearCart, currency } from "../cart";
 import { useCart } from "../hooks";
 
 const MiniCart = () => {

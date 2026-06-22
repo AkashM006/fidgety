@@ -11,7 +11,7 @@ export const mfConfig = {
     "./CartContent": "./src/components/CartContent.tsx",
   },
   remotes: {
-    home: "home@http://localhost:5000/mf-manifest.json",
+    // home: "home@http://localhost:5000/mf-manifest.json",
     // pdp: "pdp@http://localhost:5001/mf-manifest.json",
     // cart: "cart@http://localhost:5002/mf-manifest.json",
   },
